@@ -14,25 +14,42 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  div.search {
+  header {
     display: flex;
-    margin-top: 20px;
-    input {
-      padding: 0 10px;
-      height: 30px;
-      border: 1px solid #888;
-    }
-    button {
+    align-items: center;
+    button.add-user {
       background: ${theme.primary};
       color: #fff;
-      font-size: 18px;
       border: 0;
       height: 30px;
-      width: 30px;
-      border-radius: 0 4px 4px 0;
+      margin-top: 20px;
+      padding: 0 10px;
+      border-radius: 3px;
+      margin-left: 60px;
     }
-    button:hover {
+    button.add-user:hover {
       opacity: 0.9;
+    }
+    div.search {
+      display: flex;
+      margin-top: 20px;
+      input {
+        padding: 0 10px;
+        height: 30px;
+        border: 1px solid #888;
+      }
+      button {
+        background: ${theme.primary};
+        color: #fff;
+        font-size: 18px;
+        border: 0;
+        height: 30px;
+        width: 30px;
+        border-radius: 0 4px 4px 0;
+      }
+      button:hover {
+        opacity: 0.9;
+      }
     }
   }
   table {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { MdSearch } from 'react-icons/md';
+import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header';
 import ListItem from '../../components/ListItem';
 
@@ -25,6 +26,8 @@ const List: React.FC = () => {
   const [hasNext, setHasNext] = useState(true);
   const [search, setSearch] = useState('');
   const [deleteItem, setDeleteItem] = useState<null | number>(null);
+
+  const history = useHistory();
 
   const handleDelete = useCallback(async () => {
     if (deleteItem) {
@@ -71,16 +74,25 @@ const List: React.FC = () => {
     <>
       <Header title="Usuários" />
       <Container>
-        <div className="search">
-          <input
-            type="text"
-            placeholder="Buscar"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button type="button" onClick={handleSearch}>
-            <MdSearch />
+        <header>
+          <div className="search">
+            <input
+              type="text"
+              placeholder="Buscar"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button type="button" onClick={handleSearch}>
+              <MdSearch />
+            </button>
+          </div>
+          <button
+            className="add-user"
+            type="button"
+            onClick={() => history.push('add-user')}
+          >
+            Adicionar novo registro
           </button>
-        </div>
+        </header>
         <StyledInfiniteScroll
           dataLength={users.length}
           next={getPage}
