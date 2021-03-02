@@ -216,7 +216,11 @@ const AddUser: React.FC = () => {
             <label htmlFor="city">Cidade:</label>
           </div>
           <footer>
-            <button type="button" className="cancel">
+            <button
+              type="button"
+              className="cancel"
+              onClick={() => history.push('/')}
+            >
               Calcelar
             </button>
             <button
